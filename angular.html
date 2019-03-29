@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<button ng-click="toggle()">Toggle visibility</button>
+
+<p ng-hide="myVar">
+First Name: <input type=text ng-model="firstName"><br>
+Last Name: <input type=text ng-model="lastName"><br>
+Gender: <input type=text ng-model="gender"><br>
+Nationality: <input type=text ng-model="nationality"><br><br>
+Full Name: {{firstName + " " + lastName}}<br>
+Gender: {{gender}}<br>
+Nationality: {{nationality}}<br>
+</p>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe",
+	$scope.gender = "Male",
+	$scope.nationality = "Nigerian"
+    $scope.myVar = false;
+    $scope.toggle = function() {
+        $scope.myVar = !$scope.myVar;
+    };
+});
+</script> 
+
+<p>Click the button to hide/show the user information.</p>
+
+
+</div>
+</body>
+</html>
